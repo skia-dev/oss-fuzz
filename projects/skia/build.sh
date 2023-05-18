@@ -151,7 +151,8 @@ $SRC/skia/third_party/ninja/ninja -C out/Fuzz \
   webp_encoder
 
 $SRC/skia/third_party/ninja/ninja -C out/FuzzDebug \
-  cubic_quad_roots \
+  cubic_roots \
+  quad_roots \
   skmeshspecification \
   skruntimeeffect \
   sksl2glsl \
@@ -297,4 +298,7 @@ mv out/Fuzz/colrv1 $OUT/colrv1
 mv ../skia_data/colrv1_seed_corpus.zip $OUT/colrv1_seed_corpus.zip
 
 # This just takes 4 floats - no seed corpus necessary
-mv out/FuzzDebug/cubic_quad_roots $OUT/cubic_quad_roots
+mv out/FuzzDebug/cubic_roots $OUT/cubic_roots
+
+# This just takes 3 floats - no seed corpus necessary
+mv out/FuzzDebug/quad_roots $OUT/quad_roots
