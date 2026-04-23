@@ -87,6 +87,8 @@ RUN wget -O $SRC/skia_data/parse_path_seed_corpus.zip https://cdn.skia.org/oss-f
 
 RUN wget -O $SRC/skia_data/hdr_agtm_seed_corpus.zip https://cdn.skia.org/oss-fuzz/hdr_agtm_seed_corpus.zip
 
+RUN wget -O $SRC/skia_data/skregion_deserialize_seed_corpus.zip https://cdn.skia.org/oss-fuzz/skregion_deserialize_seed_corpus.zip
+
 COPY image_filter_deserialize_width.options $SRC/skia_data/image_filter_deserialize_width.options
 
 COPY json.dict $SRC/skia_data/json.dict
