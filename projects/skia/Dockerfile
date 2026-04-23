@@ -17,7 +17,8 @@
 FROM gcr.io/oss-fuzz-base/base-builder
 
 # Mesa,libz/zlib, and xcb needed to build swiftshader
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update -qq && export DEBIAN_FRONTEND=noninteractive && \
+    apt-get install -y -qq --no-install-recommends \
     python3 \
     wget \
     libglu1-mesa-dev \
@@ -25,7 +26,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zlib1g-dev \
     libxext-dev \
     libxcb-shm0-dev \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    > /dev/null && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --quiet 'https://chromium.googlesource.com/chromium/tools/depot_tools.git' --depth 1
 ENV PATH="${SRC}/depot_tools:${PATH}"
